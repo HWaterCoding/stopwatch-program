@@ -1,0 +1,103 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.wrapper {
+    background-color: black;
+    position: relative;
+    height: 100vh;
+}
+
+
+.wrapper h1{
+    color: #fff;
+    font-size: 2rem;
+    text-align: center;
+}
+
+#clock {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+/* #timecontainer{
+    
+} */
+
+#time{
+    /* text-align: center; */
+    font-size: 2.4rem;
+    color: #fff;
+}
+
+/* #lapTimers{
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    border: 2px solid white;
+    height: 150px;
+    aspect-ratio: 1/1;
+} */
+
+.lapH3{
+    color: #fff;
+}
+
+
+
+
+
+/* button styling */
+.buttoncontainer{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px;
+}
+
+button{
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 10px;
+    border-radius: 0;
+    color: cyan;
+    background-color: black;
+    border: none;
+}
+
+button:hover{
+    background-color: rgb(51, 51, 51);
+}
+
+
+/* to determine current play button state */
+button .icon{
+    display: none;
+}
+
+button:not(.running) .fa-play {
+    display: inline;
+}
+
+button.running .fa-pause {
+    display: inline;
+}
+
+
+
+
+/* Things to style next to make cleaner: */
+
+
+/* 3. Turn "lap" list into a small scroll box with modern styling.
+Position it as a box to the right of the buttons/time. */
