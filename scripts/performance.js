@@ -87,7 +87,11 @@ function lapTime(stopwatch){
     let lapCount = 1;
     const lapTimers = document.getElementById("lapTimers");
 
-    function createLap(){        
+    function createLap(){
+        if(!stopwatch.isRunning()){
+            return;
+        }
+
         lapTimers.style.display = "block";
 
         const elapsedMs = stopwatch.getElapsedMs();
@@ -116,6 +120,13 @@ const lapBtn = document.getElementById("lap");
 const lapper = lapTime(stopwatch);
 lapBtn.addEventListener("click", lapper.createLap);
 
+
+
+
+//To-Do ASAP:
+//1. Make it so that the lap button cannot be clicked if the stopwatch hasn't started.
+//2. Fix the lap-timers container so that it is a confined space to the right of the clock,
+// doesn't mess up the layout of the page, and is contained to a scroll-box container.
 
 
 // Features and functions to add going forward:
