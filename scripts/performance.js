@@ -123,23 +123,16 @@ lapBtn.addEventListener("click", lapper.createLap);
 
 
 
+
+
 //Order to do things currently:
 //1. Re-factor current project into module-form and bundle with webpack.
-//2. 
 
-
-//2. Create the logic for the timer function of the watch. (Make it so that when the timer hits 0
+//2. Create the logic for a "timer" function of the watch. (Make it so that when the timer hits 0
 // the clock stops at 0, the screen flashes red, and it plays a sound.)
 
 
 
-
-// Features and functions to add going forward:
-//Re-factor this project into modules and use Webpack to bundle it
-
-
-// Try to add other clock features like a timer that counts down from the time
-// the user inputs.
 
 // Try to add an alarm system to see how that work work, using Date.now()
 

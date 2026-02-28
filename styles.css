@@ -7,14 +7,29 @@ body{
     height: 100vh;
 }
 
-.wrapper {
+#navbar{
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px;
+}
+
+#navbar button{
+    padding: 15px;
+    background-color: rgb(51, 51, 51);
+    color: cyan;
+    font-weight: bold;
+}
+
+#stopwatchWrapper {
     background-color: black;
     position: relative;
     height: 100vh;
 }
 
 
-.wrapper h1{
+#stopwatchWrapper h1{
     color: #fff;
     font-size: 2rem;
     text-align: center;
@@ -63,14 +78,14 @@ body{
 
 
 /* button styling */
-.buttoncontainer{
+#buttonContainer{
     display: flex;
     justify-content: center;
     gap: 20px;
     padding: 10px;
 }
 
-button{
+#buttonContainer button{
     width: 50px;
     height: 50px;
     font-size: 20px;
@@ -82,7 +97,7 @@ button{
     border: none;
 }
 
-button:hover{
+#buttonContainer button:hover{
     background-color: rgb(51, 51, 51);
 }
 
