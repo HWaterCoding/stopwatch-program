@@ -1,3 +1,10 @@
+:root{
+    --black-theme: #000000;
+    --white-theme: #fff;
+    --faded-black-theme: rgb(50, 50, 50);
+    --cyan-theme: rgb(0, 255, 255);
+}
+
 body{
     margin: 0;
     padding: 0;
@@ -8,7 +15,8 @@ body{
 }
 
 #navbar{
-    background-color: black;
+    background: var(--black-theme);
+    border-bottom: 2px var(--cyan-theme) solid;
     display: flex;
     justify-content: center;
     gap: 15px;
@@ -17,20 +25,20 @@ body{
 
 #navbar button{
     padding: 15px;
-    background-color: rgb(51, 51, 51);
+    background: var(--faded-black-theme);
     color: cyan;
     font-weight: bold;
 }
 
 #stopwatchWrapper {
-    background-color: black;
+    background: var(--black-theme);
     position: relative;
     height: 100vh;
 }
 
 
 #stopwatchWrapper h1{
-    color: #fff;
+    color: var(--white-theme);
     font-size: 2rem;
     text-align: center;
 }
@@ -44,7 +52,7 @@ body{
 
 #time{
     font-size: 2.4rem;
-    color: #fff;
+    color: var(--white-theme);
 }
 
 #lapTimers{
@@ -57,8 +65,8 @@ body{
     left: 100%;
     top: 0;
     margin-left: 20px;
-    background-color: #000000;
-    border: 2px solid cyan;
+    background: var(--black-theme);
+    border: 2px solid var(--cyan-theme);
     max-height: 142px;
     width: 150px;
     overflow-y: auto;
@@ -68,8 +76,8 @@ body{
 }
 
 .lap{
-    color: cyan;
-    border-bottom: 0.5px solid cyan;
+    color: var(--cyan-theme);
+    border-bottom: 0.5px solid var(--cyan-theme);
     margin: 0;
 }
 
@@ -92,13 +100,13 @@ body{
     font-weight: bold;
     padding: 10px 10px;
     border-radius: 0;
-    color: cyan;
-    background-color: black;
+    color: var(--cyan-theme);
+    background-color: var(--black-theme);
     border: none;
 }
 
 #buttonContainer button:hover{
-    background-color: rgb(51, 51, 51);
+    background: var(--faded-black-theme);
 }
 
 
