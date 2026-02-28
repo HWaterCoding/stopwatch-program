@@ -123,13 +123,20 @@ lapBtn.addEventListener("click", lapper.createLap);
 
 
 
-//To-Do ASAP:
-//1. Make it so that the lap button cannot be clicked if the stopwatch hasn't started.
-//2. Fix the lap-timers container so that it is a confined space to the right of the clock,
-// doesn't mess up the layout of the page, and is contained to a scroll-box container.
+//Order to do things currently:
+//1. Re-factor current project into module-form and bundle with webpack.
+//2. 
+
+
+//2. Create the logic for the timer function of the watch. (Make it so that when the timer hits 0
+// the clock stops at 0, the screen flashes red, and it plays a sound.)
+
+
 
 
 // Features and functions to add going forward:
+//Re-factor this project into modules and use Webpack to bundle it
+
 
 // Try to add other clock features like a timer that counts down from the time
 // the user inputs.
