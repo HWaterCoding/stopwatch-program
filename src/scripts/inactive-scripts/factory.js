@@ -102,19 +102,3 @@ function lapTime(stopwatch){
 const lapBtn = document.getElementById("lap");
 const lapper = lapTime(stopwatch);
 lapBtn.addEventListener("click", lapper.createLap);
-
-// Add some CSS stylings to the button and the project in general to make it more aesthetic.
-
-
-//change the start button so that when clicked, it because a pause button, and remove stop button completely 
-
-
-
-
-
-//Let's add milliseconds to the stopwatch and the laps afterwards as well!
-// after adding milliseconds, refactor the equation for displaying the time into one function to call multiple times
-
-//Then let's make the design look better by replacing the buttons with icons, and customizing fonts/layout.
-
-//Let's also add a dark/light mode button to change the display mode.
