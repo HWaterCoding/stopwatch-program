@@ -1,5 +1,5 @@
 //main file, add event listeners.
-import "./styles.css";
+import "../styles.css";
 
 
 import loadStopwatch from "./stopwatch-load.js";
