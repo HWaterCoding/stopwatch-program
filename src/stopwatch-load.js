@@ -48,3 +48,5 @@ export default function loadStopwatch(){
 
     buttonContainer.append(resetBtn, toggleBtn, lapBtn);
 }
+
+//test
