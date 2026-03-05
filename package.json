@@ -1,0 +1,29 @@
+{
+  "name": "stop-watch",
+  "version": "1.0.0",
+  "description": "Practicing making a stopwatch program and then converting this program to use factory functions to make it more efficient",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HWaterCoding/stopwatch-program.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/HWaterCoding/stopwatch-program/issues"
+  },
+  "homepage": "https://github.com/HWaterCoding/stopwatch-program#readme",
+  "devDependencies": {
+    "css-loader": "^7.1.4",
+    "html-loader": "^5.1.0",
+    "html-webpack-plugin": "^5.6.6",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.105.4",
+    "webpack-cli": "^6.0.1"
+  }
+}
