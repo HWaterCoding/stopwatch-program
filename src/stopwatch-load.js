@@ -24,14 +24,27 @@ export default function loadStopwatch(){
     buttonContainer.id = "buttonContainer";
     stopwatchClockDiv.appendChild(buttonContainer);
 
-    //need to add the icons to the buttons.
+
     const resetBtn = document.createElement("button");
+    const resetIcon = document.createElement("i");
+    resetIcon.classList.add("fa-solid", "fa-rotate-left");
+    resetBtn.appendChild(resetIcon);
     resetBtn.id = "reset";
+
     const toggleBtn = document.createElement("button");
+    const playIcon = document.createElement("i");
+    playIcon.classList.add("icon", "fa-solid", "fa-play");
+    const pauseIcon = document.createElement("i");
+    playIcon.classList.add("icon", "fa-solid", "fa-pause");
+    toggleBtn.append(playIcon, pauseIcon);
     toggleBtn.id = "toggleBtn";
+
+
     const lapBtn = document.createElement("button");
+    const lapIcon = document.createElement("i");
+    lapIcon.classList.add("fa-solid", "fa-flag");
+    lapBtn.appendChild(lapIcon);
     lapBtn.id = "lap";
 
     buttonContainer.append(resetBtn, toggleBtn, lapBtn);
-
 }

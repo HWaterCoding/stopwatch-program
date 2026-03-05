@@ -1,4 +1,6 @@
 //main file, add event listeners.
+import "./styles.css";
+
 
 import loadStopwatch from "./stopwatch-load.js";
 
@@ -26,3 +28,6 @@ const alarmBtn = document.getElementById("alarmBtn");
 alarmBtn.addEventListener("click", () =>{
 
 });
+
+//Default page-load
+loadStopwatch();

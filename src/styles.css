@@ -13,12 +13,6 @@
   margin: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  html {
-    interpolate-size: allow-keywords;
-  }
-}
-
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
@@ -61,7 +55,7 @@ body{
     border-bottom: 2px var(--cyan-theme) solid;
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: clamp(1rem, 20px, 2rem);
     padding: 20px;
 }
 
@@ -70,6 +64,7 @@ body{
     background: var(--faded-black-theme);
     color: cyan;
     font-weight: bold;
+    font-size: clamp(1.5rem, 30px, 2rem);
 }
 
 
@@ -91,8 +86,9 @@ body{
 
 #stopwatchWrapper h1{
     color: var(--white-theme);
-    font-size: 2rem;
+    font-size: clamp(2rem, 40px, 4rem);
     text-align: center;
+    padding: clamp(1rem, 20px, 2rem);
     margin: 0;
 }
 
