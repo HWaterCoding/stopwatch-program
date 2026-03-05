@@ -1,5 +1,7 @@
 //main file, add event listeners.
 
+import loadStopwatch from "./stopwatch-load.js";
+
 const clockBtn = document.getElementById("clockBtn");
 clockBtn.addEventListener("click", () =>{
 
@@ -7,7 +9,7 @@ clockBtn.addEventListener("click", () =>{
 
 const stopwatchBtn = document.getElementById("stopwatchBtn");
 stopwatchBtn.addEventListener("click", () =>{
-
+    loadStopwatch();
 });
 
 const timerBtn = document.getElementById("timerBtn");

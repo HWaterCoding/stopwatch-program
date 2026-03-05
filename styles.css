@@ -30,14 +30,14 @@ body{
     font-weight: bold;
 }
 
-#stopwatchWrapper {
+#stopwatch {
     background: var(--black-theme);
     position: relative;
     height: 100vh;
 }
 
 
-#stopwatchWrapper h1{
+#stopwatch h1{
     color: var(--white-theme);
     font-size: 2rem;
     text-align: center;
@@ -101,7 +101,8 @@ body{
     padding: 10px 10px;
     border-radius: 0;
     color: var(--cyan-theme);
-    background-color: var(--black-theme);
+    background-color: red;
+    /* background-color: var(--black-theme); */
     border: none;
 }
 
