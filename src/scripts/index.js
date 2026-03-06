@@ -9,6 +9,7 @@ import renderTime from "./render-time.js";
 
 //Default page-load
 loadStopwatch();
+
 const loadStopwatchDOM = loadStopwatch();
 const stopwatch = createStopwatch();
 renderTime(stopwatch, loadStopwatchDOM.timeDisplay);
