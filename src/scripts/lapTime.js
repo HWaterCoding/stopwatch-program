@@ -1,14 +1,17 @@
-export default function lapTime(stopwatch){
+export default function lapTime(stopwatch, lapTimersDiv){
+
+    function pad2(value){
+        return String(value).padStart(2, "0");
+    }
 
     let lapCount = 1;
-    const lapTimers = document.getElementById("lapTimers");
 
     function createLap(){
         if(!stopwatch.isRunning()){
             return;
         }
 
-        lapTimers.style.display = "flex";
+        lapTimersDiv.style.display = "flex";
 
         const elapsedMs = stopwatch.getElapsedMs();
         const minutes = Math.floor(elapsedMs / 60000);
@@ -18,14 +21,14 @@ export default function lapTime(stopwatch){
         const lap = document.createElement("p");
         lap.innerHTML = `Lap ${lapCount}: ${pad2(minutes)}:${pad2(seconds)}:${pad2(centiseconds)}`;
         lap.classList.add("lap");
-        lapTimers.appendChild(lap);
+        lapTimersDiv.appendChild(lap);
 
         lapCount++;
     }
 
     function resetLaps(){
-        lapTimers.style.display = "none";
-        lapTimers.innerHTML = "";
+        lapTimersDiv.style.display = "none";
+        lapTimersDiv.innerHTML = "";
         lapCount = 1;
     }
 

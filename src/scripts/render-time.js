@@ -1,8 +1,10 @@
 //Can rewrite this to just be setTime outside a factory if nothing else needed
 
-
-//need to grab the time display 
 export default function renderTime(stopwatch, timeDisplay){
+
+    function pad2(value){
+        return String(value).padStart(2, "0");
+    }
 
     function setTime(){
         const elapsedMs = stopwatch.getElapsedMs();

@@ -24,7 +24,6 @@ export default function loadStopwatch(){
     buttonContainer.id = "buttonContainer";
     stopwatchClockDiv.appendChild(buttonContainer);
 
-
     const resetBtn = document.createElement("button");
     const resetIcon = document.createElement("i");
     resetIcon.classList.add("fa-solid", "fa-rotate-left");
@@ -35,10 +34,9 @@ export default function loadStopwatch(){
     const playIcon = document.createElement("i");
     playIcon.classList.add("icon", "fa-solid", "fa-play");
     const pauseIcon = document.createElement("i");
-    playIcon.classList.add("icon", "fa-solid", "fa-pause");
+    pauseIcon.classList.add("icon", "fa-solid", "fa-pause");
     toggleBtn.append(playIcon, pauseIcon);
     toggleBtn.id = "toggleBtn";
-
 
     const lapBtn = document.createElement("button");
     const lapIcon = document.createElement("i");
@@ -48,5 +46,5 @@ export default function loadStopwatch(){
 
     buttonContainer.append(resetBtn, toggleBtn, lapBtn);
 
-    return { timeDisplay: stopwatchTime, lapTimersDiv, resetBtn, toggleBtn, lapBtn }
+    return { stopwatchTime, lapTimersDiv, resetBtn, toggleBtn, lapBtn }
 }
