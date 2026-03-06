@@ -8,16 +8,16 @@ export default function loadStopwatch(){
     stopwatchWrapper.appendChild(stopwatchh1);
 
     const stopwatchClockDiv = document.createElement("div");
-    stopwatchClockDiv.id = "clock";
+    stopwatchClockDiv.id = "stopwatchClockDiv";
     stopwatchWrapper.appendChild(stopwatchClockDiv);
 
     const stopwatchTime = document.createElement("h1");
     stopwatchTime.textContent = "00:00:00";
-    stopwatchTime.id = "time";
+    stopwatchTime.id = "stopwatchTime";
     stopwatchClockDiv.appendChild(stopwatchTime);
 
     const lapTimersDiv = document.createElement("div");
-    lapTimersDiv.id = "lapTimers";
+    lapTimersDiv.id = "lapTimersDiv";
     stopwatchClockDiv.appendChild(lapTimersDiv);
 
     const buttonContainer = document.createElement("div");
@@ -29,7 +29,7 @@ export default function loadStopwatch(){
     const resetIcon = document.createElement("i");
     resetIcon.classList.add("fa-solid", "fa-rotate-left");
     resetBtn.appendChild(resetIcon);
-    resetBtn.id = "reset";
+    resetBtn.id = "resetBtn";
 
     const toggleBtn = document.createElement("button");
     const playIcon = document.createElement("i");
@@ -44,7 +44,9 @@ export default function loadStopwatch(){
     const lapIcon = document.createElement("i");
     lapIcon.classList.add("fa-solid", "fa-flag");
     lapBtn.appendChild(lapIcon);
-    lapBtn.id = "lap";
+    lapBtn.id = "lapBtn";
 
     buttonContainer.append(resetBtn, toggleBtn, lapBtn);
+
+    return { timeDisplay: stopwatchTime, lapTimersDiv, resetBtn, toggleBtn, lapBtn }
 }

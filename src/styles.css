@@ -5,6 +5,7 @@
     --cyan-theme: rgb(0, 255, 255);
 }
 
+/* Default stylings */
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -71,12 +72,13 @@ body{
 
 
 
-
-
 /* #content{
     /* stuff */
 /* } */
 
+
+
+/* Stop-Watch CSS::: */
 #stopwatchWrapper {
     background: var(--black-theme);
     position: relative;
@@ -92,19 +94,19 @@ body{
     margin: 0;
 }
 
-#clock {
+#stopwatchClockDiv {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-#time{
+#stopwatchTime{
     font-size: 2.4rem;
     color: var(--white-theme);
 }
 
-#lapTimers{
+#lapTimersDiv{
     display: none;
     flex-direction: column;
     justify-content: flex-start;
@@ -124,17 +126,14 @@ body{
 
 }
 
-.lap{
+#lapBtn{
     color: var(--cyan-theme);
     border-bottom: 0.5px solid var(--cyan-theme);
     margin: 0;
 }
 
 
-
-
-
-/* button styling */
+/* Stop-Watch Button Styling */
 #buttonContainer{
     display: flex;
     justify-content: center;
@@ -160,7 +159,7 @@ body{
 }
 
 
-/* to determine current play button state */
+/* Logic to determine which icon will be shown on toggleBtn */
 button .icon{
     display: none;
 }
@@ -172,3 +171,10 @@ button:not(.running) .fa-play {
 button.running .fa-pause {
     display: inline;
 }
+
+
+
+
+
+
+/* Timer CSS::: */
