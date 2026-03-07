@@ -1,5 +1,3 @@
-//Can rewrite this to just be setTime outside a factory if nothing else needed
-
 export default function renderTime(stopwatch, timeDisplay){
 
     function pad2(value){

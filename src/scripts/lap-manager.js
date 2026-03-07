@@ -19,7 +19,7 @@ export default function lapTime(stopwatch, lapTimersDiv){
         const centiseconds = Math.floor((elapsedMs % 1000) / 10);
         
         const lap = document.createElement("p");
-        lap.innerHTML = `Lap ${lapCount}: ${pad2(minutes)}:${pad2(seconds)}:${pad2(centiseconds)}`;
+        lap.textContent = `Lap ${lapCount}: ${pad2(minutes)}:${pad2(seconds)}:${pad2(centiseconds)}`;
         lap.classList.add("lap");
         lapTimersDiv.appendChild(lap);
 

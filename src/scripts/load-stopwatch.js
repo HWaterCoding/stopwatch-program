@@ -1,7 +1,10 @@
 export default function loadStopwatch(){
     
-    const stopwatchWrapper = document.getElementById("stopwatchWrapper");
+    const contentDiv = document.getElementById("content");
+
+    const stopwatchWrapper = document.createElement("div");
     stopwatchWrapper.id = "stopwatchWrapper";
+    contentDiv.appendChild(stopwatchWrapper);
     
     const stopwatchh1 = document.createElement("h1");
     stopwatchh1.textContent = "Stop-Watch";
