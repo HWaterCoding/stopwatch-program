@@ -14,7 +14,14 @@ const stopwatch = createStopwatch();
 const renderer = renderTime(stopwatch, loadStopwatchDOM.stopwatchTime);
 const lapper = lapTime(stopwatch, loadStopwatchDOM.lapTimersDiv);
 bindUI(stopwatch, renderer, loadStopwatchDOM, lapper);
-setInterval(renderer.setTime, 25);
+
+//Function to reset renderer interval so they don't stack
+let intervalId;
+function startRenderer(renderer){
+    clearInterval(intervalId);
+    intervalId = setInterval(renderer.setTime, 25);
+}
+startRenderer(renderer);
 
 //Stop-watch logic once the "stopwatch" button on navBar is clicked
 const mainContentDiv = document.getElementById("content");
