@@ -2,11 +2,11 @@
 import "../styles.css";
 
 //Import all modules 
-import loadStopwatch from "./stopwatch-scripts/load-stopwatch.js";
-import createStopwatch from "./stopwatch-scripts/create-stopwatch.js";
-import renderTime from "./stopwatch-scripts/render-time.js";
-import lapTime from "./stopwatch-scripts/lap-manager.js";
-import bindUI from "./stopwatch-scripts/ui-controller.js";
+import loadStopwatch from "./stopwatch-app/load-stopwatch.js";
+import createStopwatch from "./stopwatch-app/create-stopwatch.js";
+import renderTime from "./stopwatch-app/render-time.js";
+import lapTime from "./stopwatch-app/lap-manager.js";
+import bindUI from "./stopwatch-app/ui-controller.js";
 
 //Default page-load of stopwatch application:
 const loadStopwatchDOM = loadStopwatch();
