@@ -1,3 +1,7 @@
+//THIS WILL EVENTUALLY BECOME SOMETHING LIKE "INIT-STOPWATCH.JS" AND BE USED TO SWITCH BETWEEN APPS.
+//WE WILL PUT ALL OF THIS INTO A DEFAULT FUNCTION, EXPORT IT, AND CALL IT IN "APP-CONTROLLER.JS"
+
+
 //Import CSS
 import "../styles.css";
 
@@ -9,63 +13,65 @@ import lapTime from "./stopwatch-app/lap-manager.js";
 import bindUI from "./stopwatch-app/ui-controller.js";
 
 //Default page-load of stopwatch application:
-const loadStopwatchDOM = loadStopwatch();
-const stopwatch = createStopwatch();
-const renderer = renderTime(stopwatch, loadStopwatchDOM.stopwatchTime);
-const lapper = lapTime(stopwatch, loadStopwatchDOM.lapTimersDiv);
-bindUI(stopwatch, renderer, loadStopwatchDOM, lapper);
+
+// const loadStopwatchDOM = loadStopwatch();
+// const stopwatch = createStopwatch();
+// const renderer = renderTime(stopwatch, loadStopwatchDOM.stopwatchTime);
+// const lapper = lapTime(stopwatch, loadStopwatchDOM.lapTimersDiv);
+// bindUI(stopwatch, renderer, loadStopwatchDOM, lapper);
 
 //Function to reset renderer interval so they don't stack
-let intervalId;
-function startRenderer(renderer){
-    clearInterval(intervalId);
-    intervalId = setInterval(renderer.setTime, 25);
-}
-startRenderer(renderer);
+
+// let intervalId;
+// function startRenderer(renderer){
+//     clearInterval(intervalId);
+//     intervalId = setInterval(renderer.setTime, 25);
+// }
+// startRenderer(renderer);
 
 //Stop-watch logic once the "stopwatch" button on navBar is clicked
 const mainContentDiv = document.getElementById("content");
-const stopwatchBtn = document.getElementById("stopwatchBtn");
-stopwatchBtn.addEventListener("click", () =>{
+const stopwatchNavbarBtn = document.getElementById("stopwatchNavbarBtn");
+stopwatchNavbarBtn.addEventListener("click", () =>{
+
+    let intervalId;
+    function startRenderer(renderer){
+        clearInterval(intervalId);
+        intervalId = setInterval(renderer.setTime, 25);
+    }
+
     mainContentDiv.innerHTML = "";
     const loadStopwatchDOM = loadStopwatch();
     const stopwatch = createStopwatch();
     const renderer = renderTime(stopwatch, loadStopwatchDOM.stopwatchTime);
     const lapper = lapTime(stopwatch, loadStopwatchDOM.lapTimersDiv);
     bindUI(stopwatch, renderer, loadStopwatchDOM, lapper);
-    setInterval(renderer.setTime, 25);
+    startRenderer(renderer);
 });
+
+
+
+
+
+
+
+
+//TIMER LOGIC
+
+import loadTimer from "./timer-app/load-timer.js";
+
+const timerNavbarBtn = document.getElementById("timerNavbarBtn");
+timerNavbarBtn.addEventListener("click", () =>{
+    mainContentDiv.innerHTML = "";
+    loadTimer();
+})
+
 
 
 
 
 
 //To-do:
-//4) Store all stopwatch related files into it's own directory and fix filepaths
-//5) Need to fix the CSS sizings and everything of the stopwatch program.
-//6) Make all CSS completely responsive and play around with clamp() on everything.
-
-
-
-
-
-
-
-
-const clockWrapper = document.getElementById("clockWrapper");
-const clockBtn = document.getElementById("clockBtn");
-clockBtn.addEventListener("click", () =>{
-    mainContentDiv.innerHTML = "";
-});
-
-const timerWrapper = document.getElementById("timerWrapper");
-const timerBtn = document.getElementById("timerBtn");
-timerBtn.addEventListener("click", () =>{
-    mainContentDiv.innerHTML = "";
-});
-
-const alarmWrapper = document.getElementById("alarmWrapper");
-const alarmBtn = document.getElementById("alarmBtn");
-alarmBtn.addEventListener("click", () =>{
-    mainContentDiv.innerHTML = "";
-});
+//1) Need to fix the CSS sizings and everything of the stopwatch program.
+//2) Make all CSS completely responsive and play around with clamp() on everything.
+//3) Move pad2() function into a shared utilities directory to use across multiple apps in project
