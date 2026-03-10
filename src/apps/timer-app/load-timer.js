@@ -8,34 +8,87 @@ export default function loadTimer(){
 
     const timerTitle = document.createElement("h1");
     timerTitle.textContent = "Timer";
-    const timerDiv = document.createElement("div");
-    timerDiv.id = "timerDiv";
-    timerWrapper.append(timerTitle, timerDiv);
+    const defaultMessageDiv = document.createElement("div");
+    defaultMessageDiv.id = "defaultMessageDiv";
+    timerWrapper.append(timerTitle, defaultMessageDiv);
 
-    const timerTime = document.createElement("h1");
-    timerTime.textContent = "00:00:00";
+    const stopwatchIcon = document.createElement("i");
+    stopwatchIcon.classList.add("fa-solid", "fa-stopwatch");
+
+    const stopwatchH3 = document.createElement("h3");
+    stopwatchH3.textContent = "You don't have any timers set up yet.";
+
+    const stopwatchH4 = document.createElement("h4");
+    stopwatchH4.textContent = "Click + to add a timer.";
+
+    const stopwatchH42 = document.createElement("h4");
+    stopwatchH42.textContent = `Click ${deleteTimerIcon} to delete a timer.`;
+
     const timerButtonContainer = document.createElement("div");
     timerButtonContainer.id = "timerButtonContainer";
-    timerDiv.append(timerTime, timerButtonContainer);
 
-    const resetTimerBtn = document.createElement("button");
-    const resetTimerIcon = document.createElement("i");
-    resetTimerIcon.classList.add("fa-solid", "fa-rotate-left");
-    resetTimerBtn.appendChild(resetTimerIcon);
-    resetTimerBtn.id = "resetTimerBtn";
+    const addTimerBtn = document.createElement("button");
+    addTimerBtn.id = "addTimerBtn";
+    const addTimerIcon = document.createElement("i");
+    addTimerIcon.classList.add("fa-solid", "fa-plus");
+    addTimerBtn.appendChild(addTimerIcon);
 
-    const toggleTimerBtn = document.createElement("button");
-    const playTimerIcon = document.createElement("i");
-    playTimerIcon.classList.add("icon", "fa-solid", "fa-play");
-    const pauseTimerIcon = document.createElement("i");
-    pauseTimerIcon.classList.add("icon", "fa-solid", "fa-pause");
-    toggleTimerBtn.append(playTimerIcon, pauseTimerIcon);
-    toggleTimerBtn.id = "toggleTimerBtn";
+    const deleteTimerBtn = document.createElement("button");
+    deleteTimerBtn.id = "deleteTimerBtn";
+    const deleteTimerIcon = document.createElement("i");
+    deleteTimerIcon.classList.add("fa-solid", "fa-trash-can");
+    deleteTimerBtn.appendChild(deleteTimerIcon);
     
-    timerButtonContainer.append(resetTimerBtn, toggleTimerBtn);
+    timerButtonContainer.append(addTimerBtn, deleteTimerBtn);
+    
+    defaultMessageDiv.append(stopwatchIcon, stopwatchH3, stopwatchH4, stopwatchH42, timerButtonContainer);
 
-    return { timerTime, resetTimerBtn, toggleTimerBtn }
+    return { addTimerBtn, deleteTimerBtn }
 }
+
+
+
+
+// export default function loadTimer(){
+
+//     const contentDiv = document.getElementById("content");
+//     contentDiv.id = "content";
+//     const timerWrapper = document.createElement("div");
+//     timerWrapper.id = "timerWrapper";
+//     contentDiv.appendChild(timerWrapper);
+
+//     const timerTitle = document.createElement("h1");
+//     timerTitle.textContent = "Timer";
+//     const timerDiv = document.createElement("div");
+//     timerDiv.id = "timerDiv";
+//     timerWrapper.append(timerTitle, timerDiv);
+
+//     const timerTime = document.createElement("h1");
+//     timerTime.textContent = "00:00:00";
+//     const timerButtonContainer = document.createElement("div");
+//     timerButtonContainer.id = "timerButtonContainer";
+//     timerDiv.append(timerTime, timerButtonContainer);
+
+//     const resetTimerBtn = document.createElement("button");
+//     const resetTimerIcon = document.createElement("i");
+//     resetTimerIcon.classList.add("fa-solid", "fa-rotate-left");
+//     resetTimerBtn.appendChild(resetTimerIcon);
+//     resetTimerBtn.id = "resetTimerBtn";
+
+//     const toggleTimerBtn = document.createElement("button");
+//     const playTimerIcon = document.createElement("i");
+//     playTimerIcon.classList.add("icon", "fa-solid", "fa-play");
+//     const pauseTimerIcon = document.createElement("i");
+//     pauseTimerIcon.classList.add("icon", "fa-solid", "fa-pause");
+//     toggleTimerBtn.append(playTimerIcon, pauseTimerIcon);
+//     toggleTimerBtn.id = "toggleTimerBtn";
+    
+//     timerButtonContainer.append(resetTimerBtn, toggleTimerBtn);
+
+//     return { timerTime, resetTimerBtn, toggleTimerBtn }
+// }
+
+
 
 
 //Things to add to the DOM creation:
