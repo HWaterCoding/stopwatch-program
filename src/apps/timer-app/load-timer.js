@@ -22,7 +22,9 @@ export default function loadTimer(){
     stopwatchH4.textContent = "Click + to add a timer.";
 
     const stopwatchH42 = document.createElement("h4");
-    stopwatchH42.textContent = `Click ${deleteTimerIcon} to delete a timer.`;
+    const deleteTimerIcon = document.createElement("i");
+    deleteTimerIcon.classList.add("fa-solid", "fa-trash-can");
+    stopwatchH42.append("Click ", deleteTimerIcon, " to delete a timer.");
 
     const timerButtonContainer = document.createElement("div");
     timerButtonContainer.id = "timerButtonContainer";
@@ -35,8 +37,6 @@ export default function loadTimer(){
 
     const deleteTimerBtn = document.createElement("button");
     deleteTimerBtn.id = "deleteTimerBtn";
-    const deleteTimerIcon = document.createElement("i");
-    deleteTimerIcon.classList.add("fa-solid", "fa-trash-can");
     deleteTimerBtn.appendChild(deleteTimerIcon);
     
     timerButtonContainer.append(addTimerBtn, deleteTimerBtn);
@@ -92,8 +92,6 @@ export default function loadTimer(){
 
 
 //Things to add to the DOM creation:
-//The default-load needs to change a bit:
-//No timer or button on page to begin with, just a message saying you have no timers with an "addtimer" button below.
 
 
 
