@@ -62,6 +62,7 @@ import loadTimerDOM from "./timer-app/load-timer-DOM.js";
 import createTimerManager from "./timer-app/timer-manager.js";
 import renderTimer from "./stopwatch-app/render-time.js";
 import createTimer from "./timer-app/create-timer.js";
+import initTimer from "./timer-app/timer-init.js";
 
 const timerNavbarBtn = document.getElementById("timerNavbarBtn");
 timerNavbarBtn.addEventListener("click", () =>{
@@ -78,3 +79,4 @@ timerNavbarBtn.addEventListener("click", () =>{
 //1) Need to fix the CSS sizings and everything of the stopwatch program.
 //2) Make all CSS completely responsive and play around with clamp() on everything.
 //3) Move pad2() function into a shared utilities directory to use across multiple apps in project
+//4) Consider a homepage with all 4 app interfaces screenshotted and displayed in a clickable image to take user to app

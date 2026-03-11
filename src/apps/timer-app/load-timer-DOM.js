@@ -89,9 +89,6 @@ export default function loadTimerDOM(){
 
 //Things to add to the DOM creation:
 
-
-
-
 //1)The "timerTime" element needs to be contained within a button.
 //2)When that button is clicked, a modal looking almost the exact same needs to pop-up overtime of the displayed time
 //3)The modal will display 00:00:00 and have "hours" "minutes" and "seconds" printed underneath each, accordingly.
