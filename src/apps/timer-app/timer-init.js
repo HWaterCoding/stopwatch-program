@@ -1,4 +1,10 @@
 //initalize timers here
 export default function initTimer(){
-    //code
+    addBtn.addEventListener("click", () => {
+        const form = createTimerForm((data) => {
+            
+        });
+    });
+    //access DOM here
+    timerWrapper.appendChild(formModal);
 }

@@ -1,3 +1,3 @@
-export default function createTimer(){
+export default function createTimer(data){
 
 }
