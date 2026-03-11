@@ -2,7 +2,12 @@ export default function createTimerManager(){
 
     const timers = [];
 
-    function addTimer(timer){
+    function addTimer({name, totalSeconds}){
+        const timer = {
+            id: crypto.randomUUID(),
+            name,
+            remaining: totalSeconds
+        };
         timers.push(timer);
     }
 
