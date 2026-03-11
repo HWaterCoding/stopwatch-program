@@ -7,7 +7,7 @@ export default function createTimerManager(){
     }
 
     function deleteTimer(timer){
-
+        //retrieve id of timer using target.closest and remove from array.
     }
 
     return { addTimer, deleteTimer }

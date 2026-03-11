@@ -59,6 +59,9 @@ stopwatchNavbarBtn.addEventListener("click", () =>{
 //TIMER LOGIC
 
 import loadTimerDOM from "./timer-app/load-timer-DOM.js";
+import createTimerManager from "./timer-app/timer-manager.js";
+import renderTimer from "./stopwatch-app/render-time.js";
+import createTimer from "./timer-app/create-timer.js";
 
 const timerNavbarBtn = document.getElementById("timerNavbarBtn");
 timerNavbarBtn.addEventListener("click", () =>{

@@ -10,7 +10,9 @@ export default function loadTimerDOM(){
     timerTitle.textContent = "Timer";
     const defaultMessageDiv = document.createElement("div");
     defaultMessageDiv.id = "defaultMessageDiv";
-    timerWrapper.append(timerTitle, defaultMessageDiv);
+    const timerList = document.createElement("div");
+    timerList.id = "timerList";
+    timerWrapper.append(timerTitle, defaultMessageDiv, timerList);
 
     const stopwatchIcon = document.createElement("i");
     stopwatchIcon.classList.add("fa-solid", "fa-stopwatch");
