@@ -41,14 +41,16 @@ stopwatchNavbarBtn.addEventListener("click", () =>{
 
 import loadTimerDOM from "./timer-app/load-timer-DOM.js";
 import createTimerManager from "./timer-app/timer-manager.js";
-import renderTimer from "./stopwatch-app/render-time.js";
+import renderTimer from "./timer-app/render-timer.js";
 import createTimer from "./timer-app/create-timer.js";
 import initTimer from "./timer-app/timer-init.js";
 
 const timerNavbarBtn = document.getElementById("timerNavbarBtn");
 timerNavbarBtn.addEventListener("click", () =>{
     mainContentDiv.innerHTML = "";
-    loadTimerDOM();
+    const timerDOM = loadTimerDOM();
+    const timer = createTimer();
+    // const renderer = renderTimer(timer, timerDOM.timerList);
 })
 
 
