@@ -58,12 +58,12 @@ stopwatchNavbarBtn.addEventListener("click", () =>{
 
 //TIMER LOGIC
 
-import loadTimer from "./timer-app/load-timer.js";
+import loadTimerDOM from "./timer-app/load-timer-DOM.js";
 
 const timerNavbarBtn = document.getElementById("timerNavbarBtn");
 timerNavbarBtn.addEventListener("click", () =>{
     mainContentDiv.innerHTML = "";
-    loadTimer();
+    loadTimerDOM();
 })
 
 

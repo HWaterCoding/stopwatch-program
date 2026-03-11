@@ -1,4 +1,4 @@
-export default function loadTimer(){
+export default function loadTimerDOM(){
 
     const contentDiv = document.getElementById("content");
     contentDiv.id = "content";
@@ -21,29 +21,15 @@ export default function loadTimer(){
     const stopwatchH4 = document.createElement("h4");
     stopwatchH4.textContent = "Click + to add a timer.";
 
-    const stopwatchH42 = document.createElement("h4");
-    const deleteTimerIcon = document.createElement("i");
-    deleteTimerIcon.classList.add("fa-solid", "fa-trash-can");
-    stopwatchH42.append("Click ", deleteTimerIcon, " to delete a timer.");
-
-    const timerButtonContainer = document.createElement("div");
-    timerButtonContainer.id = "timerButtonContainer";
-
     const addTimerBtn = document.createElement("button");
     addTimerBtn.id = "addTimerBtn";
     const addTimerIcon = document.createElement("i");
     addTimerIcon.classList.add("fa-solid", "fa-plus");
     addTimerBtn.appendChild(addTimerIcon);
 
-    const deleteTimerBtn = document.createElement("button");
-    deleteTimerBtn.id = "deleteTimerBtn";
-    deleteTimerBtn.appendChild(deleteTimerIcon);
-    
-    timerButtonContainer.append(addTimerBtn, deleteTimerBtn);
-    
-    defaultMessageDiv.append(stopwatchIcon, stopwatchH3, stopwatchH4, stopwatchH42, timerButtonContainer);
+    defaultMessageDiv.append(stopwatchIcon, stopwatchH3, stopwatchH4, addTimerBtn);
 
-    return { addTimerBtn, deleteTimerBtn }
+    return { addTimerBtn }
 }
 
 
@@ -89,6 +75,14 @@ export default function loadTimer(){
 // }
 
 
+    // const stopwatchH42 = document.createElement("h4");
+    // const deleteTimerIcon = document.createElement("i");
+    // deleteTimerIcon.classList.add("fa-solid", "fa-trash-can");
+    // stopwatchH42.append("Click ", deleteTimerIcon, " to delete a timer.");
+
+    // const deleteTimerBtn = document.createElement("button");
+    // deleteTimerBtn.id = "deleteTimerBtn";
+    // deleteTimerBtn.appendChild(deleteTimerIcon);
 
 
 //Things to add to the DOM creation:
