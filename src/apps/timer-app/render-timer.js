@@ -20,3 +20,4 @@ export default function renderTimer(timer, timerList){
     timerDiv.append(timerTime, resetTimerBtn, toggleTimerBtn, timerLabel);
     timerList.appendChild(timerDiv);
 }
+

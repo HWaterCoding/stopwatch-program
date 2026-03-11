@@ -12,25 +12,10 @@ import renderTime from "./stopwatch-app/render-time.js";
 import lapTime from "./stopwatch-app/lap-manager.js";
 import bindUI from "./stopwatch-app/ui-controller.js";
 
-//Default page-load of stopwatch application:
-
-// const loadStopwatchDOM = loadStopwatch();
-// const stopwatch = createStopwatch();
-// const renderer = renderTime(stopwatch, loadStopwatchDOM.stopwatchTime);
-// const lapper = lapTime(stopwatch, loadStopwatchDOM.lapTimersDiv);
-// bindUI(stopwatch, renderer, loadStopwatchDOM, lapper);
-
-//Function to reset renderer interval so they don't stack
-
-// let intervalId;
-// function startRenderer(renderer){
-//     clearInterval(intervalId);
-//     intervalId = setInterval(renderer.setTime, 25);
-// }
-// startRenderer(renderer);
-
-//Stop-watch logic once the "stopwatch" button on navBar is clicked
 const mainContentDiv = document.getElementById("content");
+
+//STOPWATCH LOGIC
+
 const stopwatchNavbarBtn = document.getElementById("stopwatchNavbarBtn");
 stopwatchNavbarBtn.addEventListener("click", () =>{
 
@@ -48,10 +33,6 @@ stopwatchNavbarBtn.addEventListener("click", () =>{
     bindUI(stopwatch, renderer, loadStopwatchDOM, lapper);
     startRenderer(renderer);
 });
-
-
-
-
 
 
 
