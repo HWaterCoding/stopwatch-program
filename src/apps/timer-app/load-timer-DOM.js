@@ -35,3 +35,7 @@ export default function loadTimerDOM(){
 }
 
 //Complete
+
+//revision:
+//defaultMessageDiv needs to check if timers[] array is empty. If empty, it's display is flex. If not empty, display: none.
+//probably want to do this directly in the createTimerMangager module, though. 

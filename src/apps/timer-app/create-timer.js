@@ -1,19 +1,18 @@
 export default function createTimer(name, totalSeconds){
 
-
-    let elapsedSeconds = 0;
-    let startTime = null;
+    let timerName = name;
+    let remainingSeconds = totalSeconds;
     let running = false;
 
     function startTimer(){
         if(running) return;
-
+        
         running = true;
     }
 
     function stopTimer(){
         if(!running) return;
-        elapsedSeconds = startTime - performance.now();
+        elapsedSeconds = remainingSeconds - performance.now();
         running = false;
     }
 
@@ -23,7 +22,7 @@ export default function createTimer(name, totalSeconds){
         running = false;
     }
 
-    function remainingSeconds(){
+    function getRemainingSeconds(){
 
     }
 
@@ -33,7 +32,7 @@ export default function createTimer(name, totalSeconds){
 
 
     
-    return { startTimer, stopTimer, resetTimer, remainingSeconds, isRunning}
+    return { startTimer, stopTimer, resetTimer, getRemainingSeconds, isRunning}
 }
 
 //BRAINSTORM FIRST!

@@ -11,8 +11,9 @@ export default function createTimerManager(){
         timers.push(timer);
     }
 
-    function deleteTimer(timer){
-        //retrieve id of timer using target.closest and remove from array.
+    //this will get called after we fully render a timer and the deleteTimer button on the book is pressed.
+    function deleteTimer(idToDelete){
+        timers = timers.filter(timer => timer.id !== idToDelete)
     }
 
     function getTimers(){

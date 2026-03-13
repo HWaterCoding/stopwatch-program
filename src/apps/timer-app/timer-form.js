@@ -1,11 +1,13 @@
 export default function createTimerForm(onSubmit){
 
-    const contentDiv = document.getElementById("content");
     const timerWrapper = document.getElementById("timerWrapper");
-    contentDiv.appendChild(timerWrapper);
     
     const modalOverlay = document.createElement("div");
     modalOverlay.id = "overlay";
+        //Fix this below so that you can close the overlay by clicking outside of the form
+    // modalOverlay.addEventListener("click", () =>{
+    //     modalOverlay.style.display = "none";
+    // })
     timerWrapper.append(modalOverlay);
 
     const formModal = document.createElement("div");
@@ -75,7 +77,7 @@ export default function createTimerForm(onSubmit){
     cancelTimerBtn.textContent = "Cancel";
     cancelTimerBtn.id = "cancelTimerBtn";
     cancelTimerBtn.addEventListener("click", ()=>{
-        modalOverlay.style.display = "none";
+        modalOverlay.remove();
     })
 
     buttonContainer.append(submitBtn, cancelTimerBtn);
@@ -92,8 +94,7 @@ export default function createTimerForm(onSubmit){
         const totalSeconds = hours + minutes + seconds;
 
         onSubmit({name, totalSeconds});
-        form.remove();
-        modalOverlay.style.display = "none";
+        modalOverlay.remove();
     });
     
     return { form }
