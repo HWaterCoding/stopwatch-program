@@ -1,5 +1,7 @@
-export default function renderTimer(timer, timerList){
+export default function renderTimer(timer){
 
+    const timerList = document.getElementById("timerList");
+    //access the timers[] array in timer-manager and loop with forEach/for of to apply these styles to each timer object
     const timerDiv = document.createElement("div");
     timerDiv.classList.add("timerDiv");
 

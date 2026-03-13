@@ -1,8 +1,20 @@
 export default function createTimerForm(onSubmit){
 
+    const contentDiv = document.getElementById("content");
+    const timerWrapper = document.getElementById("timerWrapper");
+    contentDiv.appendChild(timerWrapper);
+    
+    const modalOverlay = document.createElement("div");
+    modalOverlay.id = "overlay";
+    timerWrapper.append(modalOverlay);
+
     const formModal = document.createElement("div");
+    formModal.id = "formModal";
+    modalOverlay.appendChild(formModal);
 
     const form = document.createElement("form");
+    form.id = "form";
+    formModal.appendChild(form);
 
     const formTitle = document.createElement("h3");
     formTitle.textContent = "Add New Timer"
@@ -10,14 +22,24 @@ export default function createTimerForm(onSubmit){
     const timerNameLabel = document.createElement("label");
     timerNameLabel.textContent = "Timer Name:"
     const timerNameInput = document.createElement("input");
-    timerNameInput.placeholder = "Name your timer.";
+    timerNameInput.placeholder = "Name your timer";
     timerNameInput.id = "timerNameInput";
     
     const timerSelect = document.createElement("div");
+    timerSelect.id = "timerSelect";
 
+    const hoursSelectLabel = document.createElement("label");
+    hoursSelectLabel.textContent = "Hours";
     const hoursSelect = document.createElement("select");
+    hoursSelect.id = "hoursSelect";
+    const minutesSelectLabel = document.createElement("label");
+    minutesSelectLabel.textContent = "Minutes"
     const minutesSelect = document.createElement("select");
+    minutesSelect.id = "minutesSelect";
+    const secondsSelectLabel = document.createElement("label");
+    secondsSelectLabel.textContent = "Seconds";
     const secondsSelect = document.createElement("select");
+    secondsSelect.id = "secondsSelect";
     
     const minNumber = 0;
     const maxHours = 23;
@@ -29,20 +51,35 @@ export default function createTimerForm(onSubmit){
         hoursSelect.append(option);
     }
     for(let i = minNumber; i <= maxNumber; i++){
-        const option = document.createElement("option");
-        option.value = i;
-        option.textContent = i;
-        minutesSelect.append(option);
-        secondsSelect.append(option);
+        const minutesOption = document.createElement("option");
+        minutesOption.value = i;
+        minutesOption.textContent = i;
+        minutesSelect.append(minutesOption);
+
+        const secondsOption = document.createElement("option");
+        secondsOption.value = i;
+        secondsOption.textContent = i;
+        secondsSelect.append(secondsOption);
     }
-    timerSelect.append(hoursSelect, minutesSelect, secondsSelect);
+    timerSelect.append(hoursSelectLabel, hoursSelect, minutesSelectLabel, minutesSelect, secondsSelectLabel, secondsSelect);
+
+    const buttonContainer = document.createElement("div");
+    buttonContainer.id = "timerFormButtonContainer";
 
     const submitBtn = document.createElement("button");
+    submitBtn.type = "submit";
     submitBtn.textContent = "Create Timer";
     submitBtn.id = "formSubmitBtn";
 
-    form.append(formTitle, timerNameLabel, timerNameInput, timerSelect, submitBtn);
-    formModal.appendChild(form);
+    const cancelTimerBtn = document.createElement("button");
+    cancelTimerBtn.textContent = "Cancel";
+    cancelTimerBtn.id = "cancelTimerBtn";
+    cancelTimerBtn.addEventListener("click", ()=>{
+        modalOverlay.style.display = "none";
+    })
+
+    buttonContainer.append(submitBtn, cancelTimerBtn);
+    form.append(formTitle, timerNameLabel, timerNameInput, timerSelect, buttonContainer);
 
     form.addEventListener("submit", (event)=>{
         event.preventDefault();
@@ -56,7 +93,10 @@ export default function createTimerForm(onSubmit){
 
         onSubmit({name, totalSeconds});
         form.remove();
+        modalOverlay.style.display = "none";
     });
     
     return { form }
 }
+
+//Complete

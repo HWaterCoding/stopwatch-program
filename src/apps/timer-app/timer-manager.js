@@ -5,7 +5,7 @@ export default function createTimerManager(){
     function addTimer({name, totalSeconds}){
         const timer = {
             id: crypto.randomUUID(),
-            name,
+            name: name,
             remaining: totalSeconds
         };
         timers.push(timer);
@@ -15,5 +15,9 @@ export default function createTimerManager(){
         //retrieve id of timer using target.closest and remove from array.
     }
 
-    return { addTimer, deleteTimer }
+    function getTimers(){
+        return timers;
+    }
+
+    return { addTimer, deleteTimer, getTimers }
 }

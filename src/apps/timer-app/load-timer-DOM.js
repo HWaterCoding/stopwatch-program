@@ -34,14 +34,4 @@ export default function loadTimerDOM(){
     return { addTimerBtn }
 }
 
-
-//Things to add to the DOM creation:
-
-//1)The "timerTime" element needs to be contained within a button.
-//2)When that button is clicked, a modal looking almost the exact same needs to pop-up overtime of the displayed time
-//3)The modal will display 00:00:00 and have "hours" "minutes" and "seconds" printed underneath each, accordingly.
-//4)Each 3 segments of the time will incorporate a dropdown select element
-//5)The first segment will have options 0-23, the second and third will be 0-59
-//6)This modal also needs to have two buttons: 
-//7) It needs to have an "addTimerBtn" to take the values selected and make the timer off that.
-//8) It needs to have a "cancelTimerBtn" to basically just close the modal. 
+//Complete
