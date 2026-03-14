@@ -41,7 +41,6 @@ stopwatchNavbarBtn.addEventListener("click", () =>{
 //TIMER LOGIC
 
 import loadTimerDOM from "./timer-app/load-timer-DOM.js";
-import createTimerForm from "./timer-app/timer-form.js";
 import createTimer from "./timer-app/create-timer.js";
 import createTimerManager from "./timer-app/timer-manager.js";
 import renderTimer from "./timer-app/render-timer.js";
@@ -50,13 +49,19 @@ import initTimer from "./timer-app/ui-controller.js";
 const timerNavbarBtn = document.getElementById("timerNavbarBtn");
 timerNavbarBtn.addEventListener("click", () =>{
 
+    let intervalId;
+    function startRenderer(renderer){
+        clearInterval(intervalId);
+        intervalId = setInterval(renderer.setTime, 25);
+    }
+
     mainContentDiv.innerHTML = "";
     const timerDOM = loadTimerDOM();
     const timer = createTimer();
     const timerManager = createTimerManager();
-    initTimer(timerDOM, timerManager, createTimerForm); //(add renderer once done)
-    // const renderer = renderTimer(timer, timerDOM.timerList);
-    // startRenderer(renderer);
+    const renderer = renderTimer(timer);
+    initTimer(timerDOM, timer, timerManager, renderer);
+    startRenderer(renderer);
 })
 
 

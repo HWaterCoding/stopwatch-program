@@ -183,7 +183,7 @@ button.running .fa-pause {
 
 
 
-/* Timer CSS::: */
+/* Timer Default Page-Load CSS::: */
 #timerWrapper {
     position: relative;
     height: 100vh;
@@ -216,8 +216,28 @@ button.running .fa-pause {
     font-size: 16rem;
 }
 
+
+
+
+/* Timer CSS::: */
+
+#timerList{
+    background-color: red;
+    display: flex;
+}
+
+.timerDiv{
+    background-color: green;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 400px;
+    height: 300px;
+}
+
 #timerButtonContainer{
     display: flex;
+    justify-content: center;
     gap: 30px;
 }
 
@@ -225,8 +245,11 @@ button.running .fa-pause {
     font-size: 50px;
 }
 
-#timerList{
-    background-color: red;
+#timerInfoDiv{
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    align-items: center;
 }
 
 
