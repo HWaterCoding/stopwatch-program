@@ -1,18 +1,20 @@
-export default function createTimer(name, totalSeconds){
+export default function createTimer(totalSeconds){
 
-    let timerName = name;
     let remainingSeconds = totalSeconds;
+    let secondsElapsed = 0;
     let running = false;
 
     function startTimer(){
         if(running) return;
-        
+        if(remainingSeconds === 0) return;
+        remainingSeconds--;
+        secondsElapsed++;
         running = true;
     }
 
     function stopTimer(){
         if(!running) return;
-        elapsedSeconds = remainingSeconds - performance.now();
+
         running = false;
     }
 
@@ -23,15 +25,13 @@ export default function createTimer(name, totalSeconds){
     }
 
     function getRemainingSeconds(){
-
+        return remainingSeconds;
     }
 
     function isRunning(){
         return running;
     }
 
-
-    
     return { startTimer, stopTimer, resetTimer, getRemainingSeconds, isRunning}
 }
 

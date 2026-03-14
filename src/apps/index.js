@@ -1,6 +1,5 @@
-//THIS WILL EVENTUALLY BECOME SOMETHING LIKE "INIT-STOPWATCH.JS" AND BE USED TO SWITCH BETWEEN APPS.
-//WE WILL PUT ALL OF THIS INTO A DEFAULT FUNCTION, EXPORT IT, AND CALL IT IN "APP-CONTROLLER.JS"
-
+//This file will be the index file and we will eventually move almost everything over to a new module called "app-controller.js"
+//We will then just returns functions from there to choose which app loads and control switching logic here.
 
 //Import CSS
 import "../styles.css";
@@ -13,13 +12,12 @@ import lapTime from "./stopwatch-app/lap-manager.js";
 import bindUI from "./stopwatch-app/ui-controller.js";
 
 const mainContentDiv = document.getElementById("content");
-
+//default page load
+chooseStopwatchApp();
 
 //STOPWATCH LOGIC
 
-const stopwatchNavbarBtn = document.getElementById("stopwatchNavbarBtn");
-stopwatchNavbarBtn.addEventListener("click", () =>{
-
+function chooseStopwatchApp(){
     let intervalId;
     function startRenderer(renderer){
         clearInterval(intervalId);
@@ -33,7 +31,10 @@ stopwatchNavbarBtn.addEventListener("click", () =>{
     const lapper = lapTime(stopwatch, loadStopwatchDOM.lapTimersDiv);
     bindUI(stopwatch, renderer, loadStopwatchDOM, lapper);
     startRenderer(renderer);
-});
+}
+
+const stopwatchNavbarBtn = document.getElementById("stopwatchNavbarBtn");
+stopwatchNavbarBtn.addEventListener("click", () => chooseStopwatchApp());
 
 
 
@@ -49,19 +50,17 @@ import initTimer from "./timer-app/ui-controller.js";
 const timerNavbarBtn = document.getElementById("timerNavbarBtn");
 timerNavbarBtn.addEventListener("click", () =>{
 
-    let intervalId;
-    function startRenderer(renderer){
-        clearInterval(intervalId);
-        intervalId = setInterval(renderer.setTime, 25);
-    }
+    // let intervalId;
+    // function startRenderer(renderer){
+    //     clearInterval(intervalId);
+    //     intervalId = setInterval(renderer.setTime, 25); //might have to change 25 to 1000
+    // }
 
     mainContentDiv.innerHTML = "";
     const timerDOM = loadTimerDOM();
-    const timer = createTimer();
     const timerManager = createTimerManager();
-    const renderer = renderTimer(timer);
-    initTimer(timerDOM, timer, timerManager, renderer);
-    startRenderer(renderer);
+    const timer = createTimer();
+    initTimer(timerDOM, timer, timerManager);
 })
 
 

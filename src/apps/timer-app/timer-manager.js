@@ -1,6 +1,7 @@
 export default function createTimerManager(){
 
-    const timers = [];
+    let timers = [];
+    console.log(timers)
 
     function addTimer({name, totalSeconds}){
         const timer = {

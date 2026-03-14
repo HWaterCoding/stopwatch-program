@@ -99,5 +99,3 @@ export default function createTimerForm(onSubmit){
     
     return { form }
 }
-
-//Complete
