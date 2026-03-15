@@ -7,7 +7,7 @@ export default function loadTimerDOM(){
     contentDiv.appendChild(timerWrapper);
 
     const timerTitle = document.createElement("h1");
-    timerTitle.textContent = "Timer";
+    timerTitle.textContent = "Timers";
     const defaultMessageDiv = document.createElement("div");
     defaultMessageDiv.id = "defaultMessageDiv";
     const timerList = document.createElement("div");

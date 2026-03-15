@@ -38,6 +38,9 @@ export default function renderTimer(timer, timerInfo){
         }
     });
 
+    //eventually change delete button to be with the addTimerBtn and make it create a checkbox in corner of all timers.
+    //when a checkbox on a timer is checked, allow the user to re-click the delete button to remove those timers.
+    //allow deletion of multiple timers at once 
     const deleteTimerBtn = document.createElement("button");
     const deleteTimerIcon = document.createElement("i");
     deleteTimerIcon.classList.add("fa-solid", "fa-trash");
@@ -59,6 +62,7 @@ export default function renderTimer(timer, timerInfo){
     timerLabel.id = "timerLabel";
     timerLabel.textContent = timerInfo.name;
     const timerLength = document.createElement("h4");
+    //fix this, it's total seconds not converted yet
     timerLength.textContent = timerInfo.totalSeconds; 
 
     timerInfoDiv.append(timerLabel, timerLength);

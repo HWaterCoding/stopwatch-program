@@ -71,6 +71,9 @@ body{
 
 #content{
     background: var(--black-theme);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 }
 
 
@@ -80,7 +83,8 @@ body{
 /* Stop-Watch CSS::: */
 #stopwatchWrapper {
     position: relative;
-    height: 100vh;
+    flex: 1;
+    /* height: 100vh; */
 }
 
 #stopwatchWrapper h1{
@@ -186,7 +190,8 @@ button.running .fa-pause {
 /* Timer Default Page-Load CSS::: */
 #timerWrapper {
     position: relative;
-    height: 100vh;
+    flex: 1;
+    /* height: 100vh; */
 }
 
 #timerWrapper h1{
@@ -222,12 +227,18 @@ button.running .fa-pause {
 /* Timer CSS::: */
 
 #timerList{
-    background-color: red;
+    background-color: var(--black-theme);
     display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    width: 80%;
+    max-width: 100%;
+    gap: clamp(1rem, 25px, 2rem);
+    padding: 20px;
 }
 
 .timerDiv{
-    background-color: green;
+    background-color: var(--black-theme);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -235,14 +246,29 @@ button.running .fa-pause {
     height: 300px;
 }
 
+.timerDiv:hover{
+    background-color: var(--faded-black-theme);
+}
+
 #timerButtonContainer{
     display: flex;
     justify-content: center;
     gap: 30px;
 }
+    
+#timerButtonContainer button{
+    border: none;
+    width: 50px;
+    font-size: clamp(1rem, 20px, 1.5rem);
+    font-weight: bold;
+    padding: 10px 10px;
+    border-radius: 0;
+    color: var(--cyan-theme);
+    background-color: var(--black-theme);
+}
 
-#timerButtonContainer i{
-    font-size: 50px;
+#timerButtonContainer button:hover{
+    background-color: rgb(124, 124, 124);
 }
 
 #timerInfoDiv{
@@ -276,19 +302,53 @@ button.running .fa-pause {
 #formModal{
     display: flex;
     flex-direction: column;
-    align-items: center;
     /* position: relative; */
     background-color: rgba(95, 95, 95, 0.700);
     border: 1px solid rgba(104, 104, 104, 0.700);
     box-shadow: 2px 2px 5px rgba(128, 128, 128, 0.700);
     border-radius: 10px;
+    width: 20%;
+    max-width: 100%;
+    aspect-ratio: 1/1;
 }
 
 #form{
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-evenly;
     gap: clamp(1rem, 20px, 1.5rem);
     padding: clamp(1rem, 20px, 1.5rem);
     color: #fff;
+    flex: 1;
+}
+
+#form h3{
+    font-size: clamp(2rem, 40px, 3rem);
+}
+
+#form input{
+    font-size: clamp(1rem, 20px, 1.5rem);
+    padding: 5px;
+    text-align: center;
+}
+
+#timerFormButtonContainer{
+    display: flex;
+    gap: clamp(1rem, 20px, 1.5rem);
+}
+
+#timerFormButtonContainer button{
+    padding: clamp(.5rem, 10px, 1rem);
+    border-radius: 20%;
+    color: #fff;
+    font-weight: 800;
+}
+
+#formSubmitBtn{
+    background-color: green;
+}
+
+#cancelTimerBtn{
+    background-color: red;
 }

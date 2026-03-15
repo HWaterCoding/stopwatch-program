@@ -53,7 +53,7 @@ timerNavbarBtn.addEventListener("click", () =>{
     const timerDOM = loadTimerDOM();
     const timerManager = createTimerManager();
     const timer = createTimer();
-    initTimer(timerDOM, timer, timerManager);
+    initTimer(timerDOM, timerManager);
 })
 
 
