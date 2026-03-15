@@ -1,4 +1,4 @@
-export default function renderTimer(timer){
+export default function renderTimer(timer, timerInfo){
 
     const timerList = document.getElementById("timerList");
 
@@ -6,7 +6,7 @@ export default function renderTimer(timer){
     timerDiv.classList.add("timerDiv");
 
     const timerTime = document.createElement("h1");
-    timerTime.id = "timerTime";
+    timerTime.classList.add("timerTime");
 
     const timerButtonContainer = document.createElement("div");
     timerButtonContainer.id = "timerButtonContainer";
@@ -26,7 +26,7 @@ export default function renderTimer(timer){
     const pauseTimerIcon = document.createElement("i");
     pauseTimerIcon.classList.add("icon", "fa-solid", "fa-pause");
     toggleTimerBtn.id = "toggleTimerBtn";
-    toggleTimerBtn.appendChild(playTimerIcon, pauseTimerIcon);
+    toggleTimerBtn.append(playTimerIcon, pauseTimerIcon);
     toggleTimerBtn.addEventListener("click", ()=>{
         if(!timer.isRunning()){
             timer.startTimer();
@@ -46,6 +46,8 @@ export default function renderTimer(timer){
     deleteTimerBtn.addEventListener("click", (event)=>{
         const timerToDelete = event.target.closest(".timerDiv");
         //grab the id from manager?
+        //delete the timer
+        //then grab getTimers() and loop through the re-render all timers
     });
 
     timerButtonContainer.append(resetTimerBtn, toggleTimerBtn, deleteTimerBtn);
@@ -55,9 +57,9 @@ export default function renderTimer(timer){
 
     const timerLabel = document.createElement("h3");
     timerLabel.id = "timerLabel";
-    // timerLabel.textContent = timer.name;
+    timerLabel.textContent = timerInfo.name;
     const timerLength = document.createElement("h4");
-    // timerLength.textContent = timer.totalSeconds; 
+    timerLength.textContent = timerInfo.totalSeconds; 
 
     timerInfoDiv.append(timerLabel, timerLength);
 

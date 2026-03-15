@@ -26,6 +26,7 @@ export default function createTimerForm(onSubmit){
     const timerNameInput = document.createElement("input");
     timerNameInput.placeholder = "Name your timer";
     timerNameInput.id = "timerNameInput";
+    timerNameInput.required = "true";
     
     const timerSelect = document.createElement("div");
     timerSelect.id = "timerSelect";
@@ -92,6 +93,10 @@ export default function createTimerForm(onSubmit){
         const minutes = Number(minutesSelect.value) * 60;
         const seconds = Number(secondsSelect.value);
         const totalSeconds = hours + minutes + seconds;
+        if(totalSeconds === 0){
+            alert("Please input a time.");
+            return;
+        }
 
         onSubmit({name, totalSeconds});
         modalOverlay.remove();

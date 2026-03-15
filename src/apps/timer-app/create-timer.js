@@ -25,7 +25,7 @@ export default function createTimer(totalSeconds){
     }
 
     function getRemainingSeconds(){
-        return remainingSeconds;
+        return totalSeconds;
     }
 
     function isRunning(){
