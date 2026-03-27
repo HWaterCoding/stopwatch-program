@@ -191,6 +191,8 @@ button.running .fa-pause {
 #timerWrapper {
     position: relative;
     flex: 1;
+    display: flex;
+    flex-direction: column;
     /* height: 100vh; */
 }
 
@@ -202,7 +204,12 @@ button.running .fa-pause {
     margin: 0;
 }
 
-#defaultMessageDiv {
+#timerTitleDiv{
+    display: flex;
+    gap: 15px;
+}
+
+#emptyStateDiv {
     max-width: 500px;
     width: 300px;
     position: absolute;

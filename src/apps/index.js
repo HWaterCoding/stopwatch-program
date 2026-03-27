@@ -44,6 +44,7 @@ stopwatchNavbarBtn.addEventListener("click", () => chooseStopwatchApp());
 import loadTimerDOM from "./timer-app/load-timer-DOM.js";
 import createTimer from "./timer-app/create-timer.js";
 import createTimerManager from "./timer-app/timer-manager.js";
+import { renderMain } from "./timer-app/render-timer.js";
 import initTimer from "./timer-app/ui-controller.js";
 
 const timerNavbarBtn = document.getElementById("timerNavbarBtn");
@@ -52,17 +53,13 @@ timerNavbarBtn.addEventListener("click", () =>{
     mainContentDiv.innerHTML = "";
     const timerDOM = loadTimerDOM();
     const timerManager = createTimerManager();
-    const timer = createTimer();
+    renderMain(timerManager.getTimers());
+    // const timer = createTimer();
     initTimer(timerDOM, timerManager);
 })
 
 
-//Work-Flow for now:
-//1) fix the form and make it work.
-//2) make the timerManager properly store timers. 
-//3) make the renderer display timers properly.
-//4) finish the logic for the createTimer module 
-//5) connect everything
+
 
 
 
