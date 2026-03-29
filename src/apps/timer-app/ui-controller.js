@@ -5,7 +5,6 @@ import { renderMain } from "./render-timer.js";
 
 export default function initTimer(timerDOM, timerManager){ 
     
-
     const addTimerBtn = timerDOM.addTimerBtn;
     addTimerBtn.addEventListener("click", ()=>{
         createTimerForm((timerInfo)=>{

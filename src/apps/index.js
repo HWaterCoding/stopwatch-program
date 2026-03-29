@@ -42,7 +42,6 @@ stopwatchNavbarBtn.addEventListener("click", () => chooseStopwatchApp());
 //TIMER LOGIC
 
 import loadTimerDOM from "./timer-app/load-timer-DOM.js";
-import createTimer from "./timer-app/create-timer.js";
 import createTimerManager from "./timer-app/timer-manager.js";
 import { renderMain } from "./timer-app/render-timer.js";
 import initTimer from "./timer-app/ui-controller.js";
@@ -54,8 +53,11 @@ timerNavbarBtn.addEventListener("click", () =>{
     const timerDOM = loadTimerDOM();
     const timerManager = createTimerManager();
     renderMain(timerManager.getTimers());
-    // const timer = createTimer();
     initTimer(timerDOM, timerManager);
+
+    // setInterval(() => {
+    //     renderMain(timerManager.getTimers());
+    // }, 1000);
 })
 
 

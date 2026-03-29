@@ -1,33 +1,31 @@
 export default function createTimer(totalSeconds){
 
-    //take totalSeconds passed in
-    //as timer runs, decrement totalSeconds.
-    //if no seconds remaining, stop timer.
-    let remainingSeconds = totalSeconds;
+    let remainingTime = totalSeconds * 1000;
+    let endTime = null;
     let running = false;
 
     function startTimer(){
         if(running) return;
-        if(remainingSeconds === 0) {
-            stopTimer()
-        };
-        remainingSeconds--;
+        endTime = performance.now() + remainingTime;
         running = true;
     }
 
     function stopTimer(){
         if(!running) return;
-
+        remainingTime = endTime - performance.now();
         running = false;
     }
 
     function resetTimer(){
-        remainingSeconds = totalSeconds;
+        remainingTime = totalSeconds * 1000;
         running = false;
+        endTime = null;
     }
 
     function getRemainingSeconds(){
-        return remainingSeconds;
+        if(!running) return Math.floor(remainingTime / 1000);
+
+        return Math.max(0, Math.floor((endTime - performance.now()) / 1000));
     }
 
     function isRunning(){

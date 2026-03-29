@@ -1,21 +1,22 @@
+import pad2 from "../shared/utilities/pad2.js"
 
-
-export function renderMain(timers, timerInfo){
+export function renderMain(timers){
     const main = document.getElementById("main");
 
     if(timers.length === 0){
         renderEmptyState()
     } else {
-        renderTimerList(timers, timerInfo);
+        renderTimerList(timers);
     }
 }
 
 function renderTimerList(timers){
+    
+    const timerList = document.getElementById("timerList");
+    timerList.innerHTML = "";
 
     timers.forEach(timer => {
-    
-        const timerList = document.getElementById("timerList");
-    
+        
         const timerDiv = document.createElement("div");
         timerDiv.classList.add("timerDiv");
     
@@ -76,8 +77,9 @@ function renderTimerList(timers){
         timerLabel.id = "timerLabel";
         timerLabel.textContent = timer.name;
         const timerLength = document.createElement("h4");
+        timerLength.id = "timerLength";
+        timerLength.textContent = timer.totalSeconds;
         //fix this, it's total seconds not converted yet
-        timerLength.textContent = timer.totalSeconds; 
     
         timerInfoDiv.append(timerLabel, timerLength);
     
@@ -87,21 +89,12 @@ function renderTimerList(timers){
         function setTime(){
             const remainingSeconds = timer.instance.getRemainingSeconds();
             const hours = Math.floor(remainingSeconds / 3600);
-            const minutes = Math.floor(remainingSeconds / 60);
+            const minutes = Math.floor(remainingSeconds / 60) % 60;
             const seconds = Math.floor(remainingSeconds % 60);
-            //import pad2 from utilies and wrap timerTime
-            timerTime.innerHTML = `${hours}:${minutes}:${seconds}`;
+            timerTime.innerHTML = `${pad2(hours)}:${pad2(minutes)}:${pad2(seconds)}`;
         }
 
         setTime();
-        //add interval here I think for updating time as it plays
-        let myInterval;
-        function startRenderer(){
-            clearInterval(myInterval);
-            myInterval = setInterval(setTime(), 1000);
-        }
-
-        startRenderer();
     });
 }
 
