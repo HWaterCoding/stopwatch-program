@@ -10,6 +10,16 @@ export function renderMain(timers){
     }
 }
 
+export function updateAllTimers(timers){
+    timers.forEach(timer =>{
+        const remainingSeconds = timer.instance.getRemainingSeconds();
+        const hours = Math.floor(remainingSeconds / 3600);
+        const minutes = Math.floor(remainingSeconds / 60) % 60;
+        const seconds = Math.floor(remainingSeconds % 60);
+        timer.dom.timerTime.innerHTML = `${pad2(hours)}:${pad2(minutes)}:${pad2(seconds)}`;
+   })
+}
+
 function renderTimerList(timers){
     
     const timerList = document.getElementById("timerList");
@@ -22,6 +32,10 @@ function renderTimerList(timers){
     
         const timerTime = document.createElement("h1");
         timerTime.classList.add("timerTime");
+
+        timer.dom = {
+            timerTime
+        };
     
         const timerButtonContainer = document.createElement("div");
         timerButtonContainer.id = "timerButtonContainer";
@@ -33,6 +47,8 @@ function renderTimerList(timers){
         resetTimerBtn.appendChild(resetTimerIcon);
         resetTimerBtn.addEventListener("click", ()=>{
             timer.instance.resetTimer();
+            toggleTimerBtn.classList.remove("running");
+            updateAllTimers([timer]);
         });
     
         const toggleTimerBtn = document.createElement("button");
@@ -51,6 +67,7 @@ function renderTimerList(timers){
                 timer.instance.stopTimer();
                 toggleTimerBtn.classList.remove("running");
             }
+            updateAllTimers([timer]);
         });
     
         //eventually change delete button to be with the addTimerBtn and make it create a checkbox in corner of all timers.
@@ -78,23 +95,13 @@ function renderTimerList(timers){
         timerLabel.textContent = timer.name;
         const timerLength = document.createElement("h4");
         timerLength.id = "timerLength";
-        timerLength.textContent = timer.totalSeconds;
-        //fix this, it's total seconds not converted yet
+        timerLength.textContent = timer.remaining;
+        //fix this, it's total seconds not converted yet (use pad2 method above)
     
         timerInfoDiv.append(timerLabel, timerLength);
     
         timerDiv.append(timerTime, timerButtonContainer, timerInfoDiv);
         timerList.append(timerDiv);
-        
-        function setTime(){
-            const remainingSeconds = timer.instance.getRemainingSeconds();
-            const hours = Math.floor(remainingSeconds / 3600);
-            const minutes = Math.floor(remainingSeconds / 60) % 60;
-            const seconds = Math.floor(remainingSeconds % 60);
-            timerTime.innerHTML = `${pad2(hours)}:${pad2(minutes)}:${pad2(seconds)}`;
-        }
-
-        setTime();
     });
 }
 

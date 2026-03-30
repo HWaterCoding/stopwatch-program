@@ -32,9 +32,3 @@ export default function loadTimerDOM(){
 
     return { addTimerBtn }
 }
-
-
-//howto:
-
-//IMPORTANT: Figure out what to do with the setTime() function as well.
-//7) Change any existing "renderTimer" function calls (like in ui-controller for example) to renderMain()

@@ -43,21 +43,24 @@ stopwatchNavbarBtn.addEventListener("click", () => chooseStopwatchApp());
 
 import loadTimerDOM from "./timer-app/load-timer-DOM.js";
 import createTimerManager from "./timer-app/timer-manager.js";
-import { renderMain } from "./timer-app/render-timer.js";
+import { renderMain, updateAllTimers } from "./timer-app/render-timer.js";
 import initTimer from "./timer-app/ui-controller.js";
+
+let timerManager;
+setInterval(() => {
+    if(timerManager){
+        updateAllTimers(timerManager.getTimers());
+    }
+}, 1000);
 
 const timerNavbarBtn = document.getElementById("timerNavbarBtn");
 timerNavbarBtn.addEventListener("click", () =>{
 
     mainContentDiv.innerHTML = "";
     const timerDOM = loadTimerDOM();
-    const timerManager = createTimerManager();
+    timerManager = createTimerManager();
     renderMain(timerManager.getTimers());
     initTimer(timerDOM, timerManager);
-
-    // setInterval(() => {
-    //     renderMain(timerManager.getTimers());
-    // }, 1000);
 })
 
 

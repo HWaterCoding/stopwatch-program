@@ -1,7 +1,6 @@
 //initalize timers here and all UI here
 import createTimerForm from "./timer-form.js";
-import createTimer from "./create-timer.js";
-import { renderMain } from "./render-timer.js";
+import { renderMain, updateAllTimers } from "./render-timer.js";
 
 export default function initTimer(timerDOM, timerManager){ 
     
@@ -10,6 +9,7 @@ export default function initTimer(timerDOM, timerManager){
         createTimerForm((timerInfo)=>{
             timerManager.addTimer(timerInfo);
             renderMain(timerManager.getTimers());
+            updateAllTimers(timerManager.getTimers());
         });
     })
 }
