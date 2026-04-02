@@ -24,10 +24,6 @@ export default function loadTimerDOM(){
     const timerContent = document.createElement("div");
     timerContent.id = "timerContent";
 
-    const timerList = document.createElement("div");
-    timerList.id = "timerList";
-
-    timerContent.appendChild(timerList);
     timerWrapper.append(timerTitleDiv, timerContent)
 
     return { addTimerBtn }

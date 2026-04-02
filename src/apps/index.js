@@ -59,7 +59,7 @@ timerNavbarBtn.addEventListener("click", () =>{
     mainContentDiv.innerHTML = "";
     const timerDOM = loadTimerDOM();
     timerManager = createTimerManager();
-    renderMain(timerManager.getTimers());
+    renderMain(timerManager.getTimers(), timerManager);
     initTimer(timerDOM, timerManager);
 })
 

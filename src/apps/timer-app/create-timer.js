@@ -34,3 +34,6 @@ export default function createTimer(totalSeconds){
 
     return { startTimer, stopTimer, resetTimer, getRemainingSeconds, isRunning}
 }
+
+//need to fix issue with when timer hit 0, and stop is pressed, it displays negative values. not sure why.
+//When time hits 0, it also need to switch toggle button back to paused.

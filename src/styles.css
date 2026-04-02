@@ -204,9 +204,18 @@ button.running .fa-pause {
     margin: 0;
 }
 
-#timerTitleDiv{
+#titleDiv{
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 15px;
+}
+
+#timerContent{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #emptyStateDiv {
@@ -275,7 +284,11 @@ button.running .fa-pause {
 }
 
 #timerButtonContainer button:hover{
-    background-color: rgb(124, 124, 124);
+    cursor: pointer;
+}
+
+#deleteTimerBtn:hover{
+    background-color: rgb(219, 67, 67);
 }
 
 #timerInfoDiv{

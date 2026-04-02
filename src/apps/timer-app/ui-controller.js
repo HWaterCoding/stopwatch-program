@@ -8,7 +8,7 @@ export default function initTimer(timerDOM, timerManager){
     addTimerBtn.addEventListener("click", ()=>{
         createTimerForm((timerInfo)=>{
             timerManager.addTimer(timerInfo);
-            renderMain(timerManager.getTimers());
+            renderMain(timerManager.getTimers(), timerManager);
             updateAllTimers(timerManager.getTimers());
         });
     })

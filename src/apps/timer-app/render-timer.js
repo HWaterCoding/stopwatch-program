@@ -1,12 +1,13 @@
 import pad2 from "../shared/utilities/pad2.js"
 
-export function renderMain(timers){
-    const main = document.getElementById("main");
+export function renderMain(timers, timerManager){
+    const timerContent = document.getElementById("timerContent");
+    timerContent.innerHTML = "";
 
     if(timers.length === 0){
         renderEmptyState()
     } else {
-        renderTimerList(timers);
+        renderTimerList(timers, timerManager);
     }
 }
 
@@ -20,15 +21,19 @@ export function updateAllTimers(timers){
    })
 }
 
-function renderTimerList(timers){
-    
-    const timerList = document.getElementById("timerList");
+function renderTimerList(timers, timerManager){
+
+    const timerContent = document.getElementById("timerContent");
+    const timerList = document.createElement("div");
+    timerList.id = "timerList";
     timerList.innerHTML = "";
+    timerContent.appendChild(timerList);
 
     timers.forEach(timer => {
         
         const timerDiv = document.createElement("div");
         timerDiv.classList.add("timerDiv");
+        timerDiv.dataset.id = timer.id;
     
         const timerTime = document.createElement("h1");
         timerTime.classList.add("timerTime");
@@ -70,19 +75,16 @@ function renderTimerList(timers){
             updateAllTimers([timer]);
         });
     
-        //eventually change delete button to be with the addTimerBtn and make it create a checkbox in corner of all timers.
-        //when a checkbox on a timer is checked, allow the user to re-click the delete button to remove those timers.
-        //allow deletion of multiple timers at once 
         const deleteTimerBtn = document.createElement("button");
         const deleteTimerIcon = document.createElement("i");
         deleteTimerIcon.classList.add("fa-solid", "fa-trash");
-        deleteTimerBtn.id = "deleteTimeBtn";
+        deleteTimerBtn.id = "deleteTimerBtn";
         deleteTimerBtn.appendChild(deleteTimerIcon);
         deleteTimerBtn.addEventListener("click", (event)=>{
             const timerToDelete = event.target.closest(".timerDiv");
-            //grab the id from manager?
-            //delete the timer
-            //then grab getTimers() and loop through the re-render all timers
+            const idToDelete = timerToDelete.dataset.id;
+            timerManager.deleteTimer(idToDelete);
+            renderMain(timerManager.getTimers());
         });
     
         timerButtonContainer.append(resetTimerBtn, toggleTimerBtn, deleteTimerBtn);
